@@ -23,9 +23,35 @@
     <h1>Meet your neighbors.<br>Build real trust.</h1>
     <p class="subtitle">Nooberly is a face-verified community platform where reputation is earned, not bought. Connect with real people around you through video profiles, reviews, and a reputation economy that rewards kindness.</p>
     <div class="cta-row">
-      <a href="#" class="btn btn-primary">Download on iOS</a>
-      <a href="#" class="btn btn-outline">Get on Android</a>
+      <a href="#" class="btn btn-primary" id="cta-ios">Coming to iOS</a>
+      <a href="https://d8pxjcxm3cprk.cloudfront.net/releases/latest/nooberly-android.apk"
+         class="btn btn-outline"
+         id="cta-android"
+         download="nooberly-android.apk"
+         rel="noopener">Download for Android</a>
     </div>
+    <p class="cta-note" id="cta-note">Android sideload — first time installing may need <a href="#" id="cta-help">"Allow from this source"</a></p>
+    <script>
+      (function(){
+        var ua = navigator.userAgent.toLowerCase();
+        var ios = /iphone|ipad|ipod/.test(ua);
+        var android = /android/.test(ua);
+        var iosBtn = document.getElementById('cta-ios');
+        var droidBtn = document.getElementById('cta-android');
+        var note = document.getElementById('cta-note');
+        if (ios) {
+          // iOS users — hide Android, soften iOS message
+          droidBtn.style.display = 'none';
+          note.style.display = 'none';
+        } else if (android) {
+          // Android users — primary action is the APK; iOS link out of the way
+          iosBtn.style.display = 'none';
+        }
+        // Desktop: leave both visible. The Android button + note still work
+        // (clicking will download the APK to their machine — not useful, but
+        // honest signaling). Anyone serious will scan from their phone.
+      })();
+    </script>
 
     <div class="hero-features">
       <div class="feature">
