@@ -1,0 +1,29 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "T8HNSGQ9RZ.com.nooberly.app"
+        ],
+        "components": [
+          {
+            "/": "/invite/*",
+            "comment": "an invite from a member"
+          },
+          {
+            "/": "/profile/*",
+            "comment": "a member profile"
+          },
+          {
+            "/": "/post/*",
+            "comment": "a post"
+          },
+          {
+            "/": "/review/*",
+            "comment": "a shared review"
+          }
+        ]
+      }
+    ]
+  }
+}
