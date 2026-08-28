@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Kingdom's Books — Nooberly</title>
+<meta name="description" content="Nooberly's open books: every dollar that enters, what the stores took, what the servant took, and what became the weekly pot.">
+<style>
+  /* Deliberately single-theme: the Kingdom is dark. Palette = the app's own
+     tokens (src/theme/colors.ts): bg #08080f, card #13131f, green #4CAF50,
+     cyan #CEFBFE. */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #08080f; color: rgba(255,255,255,0.85);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 56px 20px 90px; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.40); margin: 0 0 14px; }
+  h1 { font-size: clamp(30px, 6vw, 44px); font-weight: 700; letter-spacing: -0.02em; margin: 0; color: #fff; }
+  .lede { color: rgba(255,255,255,0.55); max-width: 58ch; margin: 14px 0 0; }
+  .servant {
+    margin: 36px 0 0; padding: 20px 22px; border-radius: 16px;
+    background: rgba(76,175,80,0.08); border: 1px solid rgba(76,175,80,0.30);
+    font-size: 19px; color: #fff;
+  }
+  .servant b { color: #4CAF50; }
+  .totals { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 0; }
+  .tot {
+    flex: 1 1 150px; background: #13131f; border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; padding: 14px 16px;
+  }
+  .tot .n { font-size: 21px; font-weight: 700; color: #fff; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .tot .n.green { color: #4CAF50; }
+  .tot .l { font-size: 10.5px; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.40); margin-top: 3px; }
+  h2 { font-size: 18px; font-weight: 600; color: #fff; margin: 44px 0 10px; }
+  .flow { margin: 0; padding-left: 0; list-style: none; counter-reset: f; max-width: 60ch; }
+  .flow li { counter-increment: f; position: relative; padding-left: 36px; margin: 9px 0; color: rgba(255,255,255,0.65); }
+  .flow li::before {
+    content: counter(f); position: absolute; left: 0; top: 2px;
+    width: 22px; height: 22px; border-radius: 11px; background: rgba(76,175,80,0.16);
+    color: #4CAF50; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tablewrap { overflow-x: auto; margin-top: 12px; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: #13131f; }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+  th, td { text-align: right; padding: 11px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-size: 10.5px; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.40); font-weight: 600; }
+  td { color: rgba(255,255,255,0.80); font-variant-numeric: tabular-nums; }
+  tr:last-child td { border-bottom: 0; }
+  td.pot { color: #4CAF50; font-weight: 700; }
+  tr.quiet td { color: rgba(255,255,255,0.28); }
+  .note { color: rgba(255,255,255,0.40); font-size: 13.5px; max-width: 62ch; margin-top: 26px; }
+  .note a { color: #CEFBFE; text-decoration: none; }
+  .state { margin-top: 30px; color: rgba(255,255,255,0.45); }
+  footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: rgba(255,255,255,0.35); }
+  footer a { color: rgba(255,255,255,0.55); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Nooberly · open books</p>
+  <h1>The Kingdom's Books</h1>
+  <p class="lede">Every dollar that enters, face-up: what came in, what the app stores took, what the servant took, and what became the week's pot. A Kingdom of the people keeps no secrets from them. Updated every Friday, when the pot pays out.</p>
+
+  <div id="state" class="state">Opening the books…</div>
+
+  <div id="books" style="display:none">
+    <div class="servant" id="servantLine"></div>
+
+    <div class="totals" id="totals"></div>
+
+    <h2>How every dollar flows</h2>
+    <ol class="flow">
+      <li>A Tip or a Supporter Badge is bought. That is the only money that ever enters.</li>
+      <li>Apple or Google take their store cut. Nobody else takes anything.</li>
+      <li>The servant's declared keep, if any, comes off next — it is printed on this page.</li>
+      <li>Everything left becomes the week's pot of Sooper Power (SP*), paid out in full every Friday to the members who earned the Kingdom's trust that week.</li>
+    </ol>
+
+    <h2>Week by week</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Week ending</th><th>Tips</th><th>In</th><th>Store cut</th><th>Servant</th><th>Pot (SP*)</th><th>Paid to</th></tr>
+        </thead>
+        <tbody id="weeks"></tbody>
+      </table>
+    </div>
+
+    <p class="note">Sooper Power (SP*) is a number the Kingdom mints and awards — not money, never sold, never bought back. Only store-verified purchases appear here. No member is named on this page. Read the whole story in the <a href="https://nooberly.com">Nooberly app</a>.</p>
+  </div>
+
+  <footer>
+    <span id="stamp"></span> · <a href="https://nooberly.com">nooberly.com</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var API = 'https://no-b34cc2e1265c471cb6bebe464bc55d22.ecs.us-east-1.on.aws/sooper/ledger';
+  var $ = function (id) { return document.getElementById(id); };
+  var usd = function (c) { return '$' + (c / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+  var sp = function (n) { return Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+  var day = function (iso) {
+    try { return new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric' }); }
+    catch (e) { return iso; }
+  };
+
+  fetch(API).then(function (r) {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  }).then(function (d) {
+    $('servantLine').innerHTML = 'The servant has taken <b>' + usd(d.totals.servantCents) + '</b> since day one.';
+
+    var tot = [
+      [usd(d.totals.inCents), 'Came in'],
+      [usd(d.totals.storeCutCents), 'Store cut'],
+      [usd(d.totals.servantCents), "Servant's keep"],
+      [sp(d.totals.potSooper) + ' SP*', 'Minted into pots', 'green'],
+      [sp(d.totals.paidSooper) + ' SP*', 'Paid out', 'green']
+    ];
+    $('totals').innerHTML = tot.map(function (t) {
+      return '<div class="tot"><div class="n ' + (t[2] || '') + '">' + t[0] + '</div><div class="l">' + t[1] + '</div></div>';
+    }).join('');
+
+    $('weeks').innerHTML = (d.weeks || []).map(function (w) {
+      var quiet = w.inCents === 0;
+      return '<tr class="' + (quiet ? 'quiet' : '') + '">' +
+        '<td>' + day(w.weekEnd) + '</td>' +
+        '<td>' + (w.tips + w.supporters) + '</td>' +
+        '<td>' + usd(w.inCents) + '</td>' +
+        '<td>' + usd(w.storeCutCents) + '</td>' +
+        '<td>' + usd(w.servantCents) + '</td>' +
+        '<td class="pot">' + sp(w.potSooper) + '</td>' +
+        '<td>' + (w.paidMembers ? w.paidMembers + ' member' + (w.paidMembers === 1 ? '' : 's') : '—') + '</td>' +
+      '</tr>';
+    }).join('') || '<tr><td colspan="7">No weeks minted yet.</td></tr>';
+
+    $('stamp').textContent = 'Books read ' + new Date(d.generatedAt).toLocaleString();
+    $('state').style.display = 'none';
+    $('books').style.display = 'block';
+  }).catch(function (e) {
+    $('state').textContent = 'The books could not be opened right now (' + e.message + '). They are still kept — try again in a minute.';
+  });
+})();
+</script>
+</body>
+</html>
