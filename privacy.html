@@ -8,6 +8,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Familjen+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* Tables and lists for this page only — style.css has no rules for them. */
+    .legal h3 { font-size: 15px; color: var(--text); margin: 22px 0 8px; }
+    .legal ul { color: var(--text-muted); font-size: 14px; line-height: 1.75; margin: 0 0 16px 22px; padding: 0; }
+    .legal li { margin-bottom: 6px; }
+    .legal .table-wrap { overflow-x: auto; margin: 0 0 20px; }
+    .legal table { width: 100%; border-collapse: collapse; font-size: 13.5px; line-height: 1.6; color: var(--text-muted); }
+    .legal th, .legal td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    .legal th { color: var(--text); font-weight: 600; font-size: 13px; }
+    .legal td:first-child { color: var(--text); font-weight: 500; white-space: nowrap; }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -21,99 +32,222 @@
 
   <div class="legal">
     <h1>Privacy Policy</h1>
-    <p class="last-modified">Last modified April 13, 2026</p>
+    <p class="last-modified">Last modified September 5, 2026</p>
 
-    <p>Nooberly, Inc. ("Nooberly," "we," "us," or "our") operates the Nooberly mobile application ("App") and the website at <strong>nooberly.com</strong> ("Site"). This Privacy Policy describes how we collect, use, share, and protect your personal information.</p>
+    <p>Nooberly, Inc. ("Nooberly", "we", "us") runs the Nooberly app and the website at <strong>nooberly.com</strong>. This page explains what we collect about you, why, who else handles it, what other people can see, how long we keep it, and what you can do about it. We wrote it in plain English on purpose. If anything is unclear, write to <a href="mailto:team@nooberly.com">team@nooberly.com</a>.</p>
 
-    <h2>1. Information We Collect</h2>
+    <h2>1. The short version</h2>
+    <ul>
+      <li><strong>Nooberly is for adults.</strong> You must be 18 or older to have an account.</li>
+      <li><strong>Your face is your identity here.</strong> You scan it once. One person gets one account. The face record stays even if you leave — that is how nobody can shed a bad reputation by signing up again.</li>
+      <li><strong>You choose how precisely people see where you are:</strong> exact, approximate (the default), or hidden.</li>
+      <li><strong>We do not sell your data.</strong> There are no ads and no advertising code in the app.</li>
+      <li><strong>Other members see the profile you build,</strong> the reviews you have received and your Star Power. Guests who have not joined see less.</li>
+      <li><strong>You can delete your account in the app any time.</strong> It waits 33 days in case you change your mind, then it goes — except the safety records listed in Section 10.</li>
+    </ul>
 
-    <p><strong>Account Information:</strong> When you register, we collect your email address, date of birth, name, and optionally your school or occupation. We use your date of birth to determine your age tier (Junior: 13–17, Adult: 18+) and never display your exact age publicly.</p>
+    <h2>2. What we collect</h2>
+    <p>Almost everything below is something you give us or create in the app. The rest is what your phone tells us so the app can work.</p>
 
-    <p><strong>Biometric Data (Face Verification):</strong> During verification, we capture facial imagery from your guided video profile. This imagery is processed by AWS Rekognition to generate a facial feature vector (faceprint). The faceprint is used to confirm your identity is unique on the platform and to prevent fraud. Your facial biometric data is stored securely and is never sold to third parties.</p>
+    <div class="table-wrap">
+    <table>
+      <tr><th>What</th><th>Where it comes from</th><th>Good to know</th></tr>
+      <tr><td>Name and email</td><td>Your Google or Apple sign-in.</td><td>Your email is your login key, not your identity. We do not show it to other members.</td></tr>
+      <tr><td>Date of birth and gender</td><td>You enter them at signup.</td><td>Both are locked after signup. The app shows other people your age, not your birthday.</td></tr>
+      <tr><td>Profile</td><td>You build it: username, display name, profession, languages, what you offer and what you are looking for, a status line, relationship status, your area, a profile photo, optional photos, and your profile video.</td><td>Much of the text is drafted by our AI from what you say in your video. You can edit it.</td></tr>
+      <tr><td>Face scan</td><td>A 3D face scan at signup. We may ask again on a new phone or after a while.</td><td>Stored as a face record on our own verification server. See Section 4.</td></tr>
+      <tr><td>Location</td><td>Your phone's position when you open the app and each time you come back to it. On the Exact setting, also the street address your phone derives from it.</td><td>Stored at the precision you choose. See Section 5.</td></tr>
+      <tr><td>Posts</td><td>The video, title, description, tags and meeting spot of anything you post.</td><td>The meeting spot is public — it is the point of the post.</td></tr>
+      <tr><td>Chats</td><td>Text, photos, voice notes and video clips you send; transcripts of voice notes and clips; typing and read signals.</td><td>Voice notes and clips are transcribed so they can be captioned.</td></tr>
+      <tr><td>Reviews</td><td>The star rating, words and optional video you give and receive.</td><td>Reviews can only come from someone you actually dealt with — there are no drive-by ratings.</td></tr>
+      <tr><td>Your AI</td><td>The questions you answer to train your own AI, photos you add to it, and your conversations with Nooberly's AI.</td><td>Conversations are saved to your account so the AI keeps context.</td></tr>
+      <tr><td>Calendar</td><td>Your availability switch, the time blocks you set, and your timezone.</td><td>Used to show when you are free and to suggest meeting times.</td></tr>
+      <tr><td>Device</td><td>A random device ID, the phone model and operating system, a push notification token, on iPhone a call token, and the IP address and rough city of each sign-in.</td><td>One active device at a time. The city helps you recognise your own sessions.</td></tr>
+      <tr><td>Purchases</td><td>Whether you are a Supporter and until when, and receipts for tips.</td><td>Payments go through Apple or Google. Card details never reach us.</td></tr>
+      <tr><td>Safety records</td><td>Reports you make or receive, people you block or mute, security incidents on your account, and behaviour flags our AI derives from reviews.</td><td>Kept to keep the community safe. See Section 10.</td></tr>
+    </table>
+    </div>
 
-    <p><strong>Video &amp; Audio Content:</strong> Your video profile is recorded, uploaded, and transcoded for playback within the App. We use AI-powered transcription (OpenAI Whisper) to generate text from your video for profile creation, language detection, and content moderation. Video content is stored on secure cloud infrastructure (AWS S3, CloudFront).</p>
+    <h2>3. Why we use it</h2>
+    <ul>
+      <li><strong>To run the app</strong> — your account, profile, posts, chats, calls, reviews and calendar.</li>
+      <li><strong>To verify who you are</strong> — one face, one account; to stop fraud, and to stop people who were removed from coming back under a new name.</li>
+      <li><strong>To show you people and posts nearby</strong>, and to show you to them, at the precision you chose.</li>
+      <li><strong>To keep people safe</strong> — automated checks on videos, photos and post titles; handling reports; enforcing blocks.</li>
+      <li><strong>To run Nooberly's AI</strong> — transcribe your video, fill in your profile, answer questions, draft a review when you ask, suggest meeting times, and let your own AI answer other members.</li>
+      <li><strong>To score reviews</strong> and work out Star Power, badges and Sooper Power.</li>
+      <li><strong>To send notifications</strong> you have turned on.</li>
+      <li><strong>To confirm purchases</strong> made through Apple or Google.</li>
+      <li><strong>To meet our legal obligations</strong> and respond to lawful requests.</li>
+    </ul>
+    <p>We do not use your data for advertising, and we do not build advertising profiles.</p>
 
-    <p><strong>Location Data:</strong> With your permission, we collect your approximate location to show nearby users, posts, and community content. Location data is processed using PostGIS and is never shared with third parties for advertising purposes.</p>
+    <h2>4. Your face</h2>
+    <p>Before your first scan we show you a consent screen that says, in short: your face becomes your key; one human, one account, ever; your face record stays even if you leave; and going available shares your location at the precision you pick. When you tap "I agree — start the scan", we record the time of that agreement on your account.</p>
+    <p>Here is what happens with the scan:</p>
+    <ul>
+      <li><strong>It is a 3D liveness scan.</strong> It confirms there is a live person in front of the camera, not a photo or a video.</li>
+      <li><strong>It is matched against every face record we hold.</strong> If your face already owns an active account, we ask you to sign in to that one. If it belongs to an account that was deleted, we recognise you and offer to restore your history (Section 10). Only a genuinely new face gets the one-time 33 Star Power welcome.</li>
+      <li><strong>It is stored on a verification server we control</strong>, running FaceTec's software, under your account ID. Your phone never talks to that server directly — only our own servers do. Accounts created before we moved to FaceTec also have a face vector stored with AWS Rekognition.</li>
+      <li><strong>Your profile video must show the same person</strong> as the scan. When you set a new profile photo, we compare it with your verified face.</li>
+      <li><strong>We may ask you to scan again</strong> when you sign in on a new phone, or from time to time.</li>
+      <li><strong>Age estimates.</strong> Our verification tools may estimate an age range from your face. We use that only to spot accounts that look under 18 for review. It never changes your age on its own.</li>
+      <li><strong>It is never sold</strong>, and never shared with anyone for their own purposes.</li>
+      <li><strong>It stays after you delete your account.</strong> This is deliberate and you should know it before you scan. Section 10 explains why and the legal basis.</li>
+    </ul>
 
-    <p><strong>Usage Data:</strong> We collect information about how you use the App, including interactions, device type, operating system, and crash reports, to improve the service.</p>
+    <h2>5. Your location</h2>
+    <p>The app asks for location permission while you are using it (not in the background). When you open the app, and each time you come back to it, we read your position and save it to your profile at the precision you have chosen. Location is what makes Nooberly work — it is how you find people near you and they find you.</p>
+    <p>You control how precise that is. Three settings, in your profile's Settings and on the Available switch:</p>
+    <ul>
+      <li><strong>Exact</strong> — we store your real position and the street address your phone derives from it. Others see an exact distance, like "0.4 mi".</li>
+      <li><strong>Approximate</strong> — the default. We store a position rounded to about a kilometre and no street address; we work out only your neighbourhood and city from it. Others see a distance band, like "within 3 mi", never tighter than one mile.</li>
+      <li><strong>Hidden</strong> — we store no position at all. Others see nothing.</li>
+    </ul>
+    <p>The <strong>Available</strong> switch is a separate control. When it is on, you have a pin on the map, you appear in Nearby, and people can ping you about posts near you. When it is off, your pin comes off the map, post pings stop, and you show as offline — but your distance setting above still applies. You cannot be Available and Hidden at the same time; being available needs a distance.</p>
+    <p>Other members see your area — a town or neighbourhood — not your street. Posts carry their own meeting spot, which is public because it is the point of the post. We also keep the rough city of the network you sign in from, so you can tell your own sessions apart. Your location is never shared with anyone for advertising.</p>
 
-    <p><strong>Communications:</strong> Chat messages between users are stored in our database to provide the messaging service. We do not read or monitor private messages unless required by law or to investigate reported abuse.</p>
+    <h2>6. Nooberly's AI</h2>
+    <p>Nooberly has one AI, and it shows up in four places: a limited guest version before you join, the concierge you can ask anything, your own AI that you train, and other members' AIs that you can talk to. It reads member data only through our own servers, never straight from the database.</p>
+    <p><strong>Your own AI</strong> answers other verified members from the answers you typed for it, your profile, your posts, your rating and local standing, and a line from your best review — all things a member can already see on your profile. About the visitor it is talking to, it reads only their own public profile and the categories their reviews were filed under — the topic of a meeting, never what someone wrote about them. If a visitor asks it to pass a message to you, it does so as your AI, and the visitor is asked to confirm first.</p>
+    <p><strong>Automated processing you should know about:</strong></p>
+    <ul>
+      <li>Your profile video, review videos, voice notes and chat clips are transcribed by OpenAI's Whisper.</li>
+      <li>Your profile video transcript is used to draft your profile text and detect your language.</li>
+      <li>Videos, photos and post titles are checked automatically for content that is not allowed here. Photos are checked by AWS Rekognition and by an OpenAI vision model.</li>
+      <li>Reviews are read by our AI to score them for Star Power and to note behaviour flags. Those flags are safety records.</li>
+      <li>When you ask the AI to draft a review, it reads your chat with that person to write it.</li>
+      <li>When a chat talks about a time to meet, an automated helper reads the recent messages in that chat to suggest a calendar time.</li>
+      <li>Photos you add to your AI are described by an OpenAI vision model so it can talk about them.</li>
+      <li>When you talk to the AI by voice, your speech is transcribed and answered by OpenAI's real-time model. If you choose to give your AI your own voice — a separate opt-in, off by default — the sample you record goes to ElevenLabs to build the voice, and we note your consent on your account.</li>
+    </ul>
+    <p>Your conversations with the AI are saved to your account. Nobody at Nooberly reads your chats as a matter of routine. A person may read a chat only when someone reports it, or when the law requires it.</p>
+    <p>All of our language and vision models come from OpenAI and are used under OpenAI's API terms — your data is not used to train their models.</p>
 
-    <h2>2. How We Use Your Information</h2>
-    <p>We use the information we collect to:</p>
-    <p>(a) Provide, maintain, and improve the App and its features.<br>
-    (b) Verify your identity and prevent fraud through face recognition.<br>
-    (c) Match you with nearby users and relevant community content.<br>
-    (d) Process transactions through Stripe Connect.<br>
-    (e) Send you push notifications about messages, reviews, and platform activity (via OneSignal or Expo Push Notifications).<br>
-    (f) Generate and display your reputation metrics (Star Power, reviews, Star Badges).<br>
-    (g) Moderate content using AI tools and community jury systems.<br>
-    (h) Comply with legal obligations.</p>
+    <h2>7. Who else handles your data</h2>
+    <p>We do not sell your data. But "not sold" is not the same as "not shared". The companies below run parts of our plumbing. They handle your data as suppliers doing a job for us, never as buyers, and only for the purpose listed.</p>
 
-    <h2>3. How We Share Your Information</h2>
-    <p>We do not sell your personal information. We share data only with:</p>
-    <p><strong>Service Providers:</strong> AWS (facial recognition, video storage, content delivery), OpenAI (transcription, AI features), Stripe (payment processing), OneSignal (push notifications), LiveKit (video calling infrastructure), and Supabase (database and authentication). These providers process data on our behalf under contractual obligations to protect your information.</p>
-    <p><strong>Other Users:</strong> Your public profile (name, video profile, reviews, Star Power, Star Badges) is visible to other users within your age tier. Junior-tier profiles are never visible to adult-tier users and vice versa.</p>
-    <p><strong>Law Enforcement:</strong> We may disclose information if required by law, subpoena, or court order, or if we believe disclosure is necessary to protect safety or prevent fraud.</p>
+    <div class="table-wrap">
+    <table>
+      <tr><th>Provider</th><th>What they do for us</th><th>What they handle</th></tr>
+      <tr><td>FaceTec</td><td>Face liveness and face matching software, running on a server we own and control.</td><td>Your 3D face scan and face record. Processed on our server, not theirs.</td></tr>
+      <tr><td>Supabase</td><td>Our database, sign-in sessions, real-time chat and presence, and chat photo/voice/clip storage.</td><td>Your account, profile, posts, chats, reviews, AI conversations and settings.</td></tr>
+      <tr><td>Amazon Web Services</td><td>S3 stores videos and photos; CloudFront delivers them; MediaConvert transcodes video; Rekognition runs photo and video safety checks, face detection and face comparison (and holds face vectors for early accounts); SES sends our email; EC2 hosts our verification server.</td><td>Your videos, photos, profile video, face checks, and the email you signed up with.</td></tr>
+      <tr><td>OpenAI</td><td>Whisper transcription; language and vision models for the AI, profile text, review scoring and safety checks; the real-time model for AI voice.</td><td>Your video and clip audio, transcripts, profile text, reviews, AI conversations, and photos you add to your AI. Used under OpenAI's API terms — not used to train their models.</td></tr>
+      <tr><td>ElevenLabs</td><td>Builds a voice for your AI, only if you choose that.</td><td>The voice sample you record for it.</td></tr>
+      <tr><td>LiveKit</td><td>Voice and video calls between members, and AI voice sessions.</td><td>Call audio and video while a call is live. We do not record calls between members.</td></tr>
+      <tr><td>OneSignal</td><td>Push notifications.</td><td>Your push token and device, tied to your account ID so a notification reaches your phone and nobody else's.</td></tr>
+      <tr><td>Apple and Google</td><td>Sign in with Apple or Google; App Store and Google Play billing for Supporter and tips; Apple's push service for incoming-call rings on iPhone.</td><td>Your sign-in identity and your purchases. Card details stay with Apple or Google.</td></tr>
+      <tr><td>RevenueCat</td><td>Confirms App Store and Google Play purchases for us.</td><td>Your account ID and purchase receipts.</td></tr>
+      <tr><td>Google Maps Platform</td><td>The map in the app, place search when you type a location, and turning your stored position into a neighbourhood or city name.</td><td>Map requests, the place names you type, and your stored position.</td></tr>
+      <tr><td>Expo</td><td>Delivers app updates.</td><td>Basic app and device details when the app checks for an update.</td></tr>
+      <tr><td>ip-api.com</td><td>Turns the IP address of a sign-in into a rough city, so you can recognise your own sessions.</td><td>The IP address of each sign-in.</td></tr>
+    </table>
+    </div>
+    <p>We may also disclose data if the law requires it — a subpoena or court order — or if we believe it is necessary to protect someone's safety or to prevent fraud.</p>
 
-    <h2>4. Biometric Data Policy</h2>
-    <p>Your facial biometric data (faceprint) is collected solely for identity verification and fraud prevention. We process biometric data under GDPR Article 6(1)(f) (legitimate interest) and, where applicable, with your explicit consent. Your faceprint is:</p>
-    <p>(a) Stored in AWS Rekognition's secure, encrypted facial index.<br>
-    (b) Used only to verify uniqueness (one person = one account) and to re-associate returning users with their reputation history.<br>
-    (c) Never sold, licensed, or shared with third parties for their own purposes.<br>
-    (d) Retained as described in the Data Retention section below.</p>
+    <h2>8. What other people can see</h2>
+    <h3>Other members</h3>
+    <p>Members are people who have verified their face. A member who opens your profile can see:</p>
+    <ul>
+      <li>Your display name, username, age, gender, relationship status, profession, languages, what you offer and what you are looking for, your status line, and your area (not your street).</li>
+      <li>Your profile photo, photos, and profile video.</li>
+      <li>Whether you are available, when you were last active, and your distance at the precision you chose.</li>
+      <li>Your posts.</li>
+      <li>Every review you have received, and the reviews you have written.</li>
+      <li>Your Star Power, your badges, and your Supporter mark if you have one.</li>
+      <li>The answers you gave your AI, through your AI.</li>
+      <li>Your contacts — the people you have exchanged reviews with — and which of them they also know.</li>
+    </ul>
+    <p><strong>Your face, your choice.</strong> At signup you can choose to show your face only to members of your own gender. Members outside that group still see you as a person — your name and profile — but not your face or photos, unless you started a chat with them or the two of you have completed a connection.</p>
+    <p><strong>Your QR code</strong> is a link to your profile. Anyone who scans it opens your profile in the app. If someone joins Nooberly by scanning your code, we note that you invited them.</p>
+    <p><strong>Reports.</strong> If someone reports a chat, a person on our side may read that chat thread to decide what to do.</p>
 
-    <h2>5. Children's Privacy</h2>
-    <p>Nooberly requires users to be at least <strong>13 years old</strong>. Users aged 13–17 are automatically placed in the Junior tier, which provides a separate, age-appropriate environment. Junior-tier users cannot access adult content, arrange real-world meetups, or participate in financial transactions. We do not knowingly collect personal information from anyone under 13. If we learn that we have collected information from a child under 13, we will delete it promptly. If you believe a child under 13 has provided us with personal information, please contact us at <a href="mailto:privacy@nooberly.com">privacy@nooberly.com</a>.</p>
+    <h3>Guests</h3>
+    <p>People who have not joined can browse the feed, watch profile videos, and read the reviews members have been given. They see your display name, age, gender, relationship status, profession, city, languages, what you offer and are looking for, your status line, whether you are available and when you were last active, your review and badge counts, your Supporter mark, and your posts and their meeting spots. They do not see your birthday, your street or neighbourhood, your distance or position, your Star Power balance, or your contacts. Your face setting applies to guests too. Nobody is told a guest looked, and a guest cannot contact you.</p>
 
-    <h2>6. Data Retention</h2>
-    <p>We retain different categories of data for different periods based on their purpose:</p>
+    <h3>The public ledger</h3>
+    <p>Each week we publish the Kingdom's money in and out at <a href="https://nooberly.com/ledger">nooberly.com/ledger</a>. It shows totals only. It never shows member names or individual amounts.</p>
 
-    <p><strong>Personal Profile Data</strong> (name, bio, posts, school/occupation): Deleted upon your request or account deletion. Removal is typically completed within 30 days.</p>
+    <h2>9. How long we keep things</h2>
+    <div class="table-wrap">
+    <table>
+      <tr><th>Data</th><th>How long</th></tr>
+      <tr><td>Profile, posts, calendar, settings</td><td>While your account exists, plus the 33-day deletion window. Then deleted.</td></tr>
+      <tr><td>Sign-in sessions and device records</td><td>While your account exists. Deleted with the account. The push token is detached from your account when you sign out.</td></tr>
+      <tr><td>Temporary uploads</td><td>Video chunks uploaded while you record are deleted automatically after one day.</td></tr>
+      <tr><td>Chats and messages</td><td>Kept. A chat is the record of a connection, and the other person keeps their side. If you delete your account, your chats are anchored to your face record and reattached if you come back.</td></tr>
+      <tr><td>Reviews, badges, behaviour flags</td><td>Kept permanently as community safety records, attached to your face record. Your name on reviews you wrote becomes "Deleted Noober" if you leave.</td></tr>
+      <tr><td>Star Power and Sooper Power ledgers</td><td>Kept permanently, attached to your face record. Balances cannot be reset by deleting and rejoining.</td></tr>
+      <tr><td>Face record and raw profile video clips</td><td>Kept permanently, even after deletion. See Section 10.</td></tr>
+      <tr><td>Reports, blocks, security incidents</td><td>Kept permanently as safety records.</td></tr>
+      <tr><td>Purchase receipts</td><td>Kept, attached to your face record, as a financial record.</td></tr>
+      <tr><td>AI conversations</td><td>While your account exists.</td></tr>
+      <tr><td>A snapshot of your profile details</td><td>Kept with the face record after deletion — name, username, birthday, gender, relationship status, profession, address, languages, what you offered and needed — so your account can be restored if you come back, and so age cannot be renegotiated by rejoining.</td></tr>
+    </table>
+    </div>
 
-    <p><strong>Facial Biometric Data</strong> (faceprint in AWS Rekognition): Retained indefinitely, even after account deletion. This is necessary to prevent fraud, enforce one-person-one-account integrity, and protect the SP economy. Legal basis: GDPR Article 6(1)(f) — legitimate interest in fraud prevention and community safety.</p>
+    <h2>10. Deleting your account — and what stays</h2>
+    <p>Go to <em>Profile → Settings → Delete Account</em>. You can also email <a href="mailto:team@nooberly.com">team@nooberly.com</a> and we will start it for you.</p>
+    <p>Deletion has a <strong>33-day waiting period</strong>. During that time your profile is taken out of feeds and search. If you sign back in before the 33 days are up, that cancels the deletion — coming back is the cancellation. The 33 days count from the moment you confirm.</p>
+    <p>When the 33 days pass, we delete your profile, your posts, your calendar, your sessions and your sign-in account.</p>
+    <p><strong>What stays, and why.</strong> Nooberly only works if a reputation cannot be shed by starting over. So these are kept after deletion, attached to your face record rather than to a name:</p>
+    <ul>
+      <li>The face record itself.</li>
+      <li>The raw clips of your profile video, as identity evidence.</li>
+      <li>Reviews you were given and reviews you wrote, badges, and behaviour flags.</li>
+      <li>Your Star Power and Sooper Power ledgers.</li>
+      <li>Your chats and messages.</li>
+      <li>Reports, blocks and security incidents.</li>
+      <li>Purchase receipts.</li>
+      <li>The profile snapshot described in Section 9.</li>
+    </ul>
+    <p>If you ever come back, we recognise your face, show you what was kept, and restore it to your new account. You never get a second 33 Star Power welcome.</p>
+    <p><strong>Legal basis.</strong> We keep these records under our legitimate interest in keeping the community safe — stopping fraud, ban evasion and the erasing of reviews other people wrote in good faith (GDPR Article 6(1)(f)). For the face record we also rely on the explicit consent you gave on the consent screen before your first scan (GDPR Article 9(2)(a)). You can object to this retention (Section 11) and we will weigh your objection against those interests and reply.</p>
 
-    <p><strong>Community Reviews</strong> (reviews written by other users about you): Retained indefinitely as community safety records. Reviews are third-party authored content and are not subject to deletion by the reviewed individual. If you re-register, prior reviews re-attach to your profile. Legal basis: GDPR Article 6(1)(f) — legitimate interest in community safety.</p>
+    <h2>11. Your rights</h2>
+    <p>Wherever you live, you can ask us to:</p>
+    <ul>
+      <li><strong>Access</strong> — get a copy of the personal data we hold about you.</li>
+      <li><strong>Correct</strong> — fix something that is wrong. Most of your profile you can edit in the app yourself. Your date of birth and gender are locked after signup; email us if one is wrong.</li>
+      <li><strong>Delete</strong> — remove your account (Section 10), subject to the safety records kept there.</li>
+      <li><strong>Port</strong> — receive your data in a structured, machine-readable format.</li>
+      <li><strong>Object</strong> — object to processing we base on legitimate interest, including the retention in Section 10.</li>
+      <li><strong>Withdraw consent</strong> — where we rely on your consent (the face scan, location permission, the AI voice). Withdrawing does not undo processing that already happened, and the face record is kept as described in Section 10.</li>
+    </ul>
+    <p>Email <a href="mailto:team@nooberly.com">team@nooberly.com</a>. We reply within 30 days. We may ask you to confirm you are the account holder first.</p>
 
-    <p><strong>Star Power Ledger &amp; Reputation Data:</strong> Retained indefinitely and tied to your biometric identity. SP cannot be reset by deleting and re-creating an account.</p>
+    <h3>If you are in the EU, EEA, UK or Switzerland</h3>
+    <p>Our legal bases are: <strong>performing our contract with you</strong> (running the app and your account); <strong>your consent</strong> (the face scan, location permission, and giving your AI your voice); <strong>our legitimate interests</strong> (safety, fraud prevention, and the records kept after deletion); and <strong>legal obligation</strong>. You also have the right to complain to your local data protection authority.</p>
 
-    <p><strong>Criminal &amp; Ban Flags:</strong> Retained permanently by biometric identity to protect the community.</p>
+    <h3>If you are in California</h3>
+    <p>We do not sell your personal information, and we do not share it for cross-context behavioural advertising. We collect the categories listed in Section 2, including sensitive personal information — your face scan and your precise location — which we use only for the purposes in this policy. You have the right to know what we collect, to delete it, to correct it, and not to be discriminated against for using those rights. California's "Shine the Light" law (Civil Code Section 1798.83) lets you ask about any disclosure of personal information to third parties for their direct marketing; we make none. To make any of these requests, email <a href="mailto:team@nooberly.com">team@nooberly.com</a>.</p>
 
-    <p><strong>Chat Messages:</strong> Retained while both participants have active accounts. If both participants delete their accounts, messages are purged within 90 days.</p>
+    <h2>12. Adults only</h2>
+    <p>Nooberly is for people aged <strong>18 and over</strong>. You enter your date of birth at signup, the app refuses anyone under 18, and our database refuses too. We do not knowingly allow anyone under 18 to create an account, and we do not knowingly collect personal information from anyone under 18.</p>
+    <p>If we learn that someone under 18 has an account, we will close it and delete the personal data we collected from them. If you believe that has happened, tell us at <a href="mailto:team@nooberly.com">team@nooberly.com</a>.</p>
 
-    <p><strong>Video Profiles:</strong> Source video files are deleted within 30 days of account deletion. Transcoded versions on CDN caches may persist for up to 90 days.</p>
+    <h2>13. Security</h2>
+    <ul>
+      <li>Everything between the app and our servers travels over encrypted connections (TLS).</li>
+      <li>The app never talks to our cloud services directly — every call goes through our own servers.</li>
+      <li>Our face verification server sits on a private network that only our own servers can reach.</li>
+      <li>Chat photos, voice notes and clips live in private storage and are handed out with short-lived signed links.</li>
+      <li>Our database uses row-level security policies, and the app has no direct table access to columns like your birthday, address and balances.</li>
+      <li>Our storage providers encrypt data at rest.</li>
+      <li>Only one device can be signed in at a time. Signing in on a new phone can trigger a fresh face scan.</li>
+    </ul>
+    <p>No system is perfectly secure, and we cannot promise absolute security. If you think your account has been touched by someone else, email us straight away.</p>
 
-    <p><strong>Usage &amp; Analytics Data:</strong> Retained in anonymized form for up to 24 months for service improvement.</p>
+    <h2>14. Where your data lives</h2>
+    <p>Our servers and storage are in the United States, and the providers in Section 7 process data there and in other countries where they operate. If you use Nooberly from outside the United States, your data is transferred there. Where the law requires it, we rely on approved safeguards for those transfers, such as Standard Contractual Clauses.</p>
 
-    <h2>7. Your Rights</h2>
-    <p>Depending on your jurisdiction, you may have the right to:</p>
-    <p>(a) <strong>Access</strong> — Request a copy of the personal data we hold about you.<br>
-    (b) <strong>Rectification</strong> — Correct inaccurate personal data.<br>
-    (c) <strong>Erasure</strong> — Request deletion of your personal profile data (subject to the retention exceptions described above).<br>
-    (d) <strong>Portability</strong> — Receive your data in a structured, machine-readable format.<br>
-    (e) <strong>Object</strong> — Object to processing based on legitimate interest. We will assess your request and respond within 30 days.<br>
-    (f) <strong>Withdraw Consent</strong> — Where processing is based on consent, you may withdraw it at any time.</p>
-    <p>To exercise these rights, contact <a href="mailto:privacy@nooberly.com">privacy@nooberly.com</a>. We will respond within 30 days. Note that certain data (biometric records, community reviews, flags) is retained under legitimate interest exceptions as detailed in Section 6.</p>
+    <h2>15. Changes to this policy</h2>
+    <p>When we change this policy in a way that matters, we will tell you in the app or by email before it takes effect. The date at the top always shows the current version. Using Nooberly after a change means you accept the updated policy.</p>
 
-    <h2>8. Your California Privacy Rights</h2>
-    <p>If you are a California resident, California law may provide you with additional rights regarding our use of your personal information. California's "Shine the Light" law (Civil Code Section 1798.83) permits users of our App that are California residents to request certain information regarding our disclosure of personal information to third parties for their direct marketing purposes. To make such a request, please send an email to <a href="mailto:privacy@nooberly.com">privacy@nooberly.com</a>.</p>
-
-    <h2>9. Security</h2>
-    <p>We implement industry-standard security measures including encryption in transit (TLS), encryption at rest for sensitive data, row-level security policies on our database, and secure API authentication. All AWS service calls are proxied through our backend — the mobile app never communicates directly with AWS. Despite these measures, no system is perfectly secure, and we cannot guarantee absolute security.</p>
-
-    <h2>10. International Transfers</h2>
-    <p>Your data may be processed in the United States and other countries where our service providers operate. We ensure appropriate safeguards are in place for international data transfers, including Standard Contractual Clauses where required by GDPR.</p>
-
-    <h2>11. Third-Party Links</h2>
-    <p>The App may contain links to third-party websites or services. We are not responsible for the privacy practices of those third parties. We encourage you to read their privacy policies.</p>
-
-    <h2>12. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of material changes through the App or by email. Your continued use of the App after changes constitutes acceptance of the updated policy.</p>
-
-    <h2>13. Contact Us</h2>
-    <p>For privacy-related questions or to exercise your data rights:</p>
-    <p>Email: <a href="mailto:privacy@nooberly.com">privacy@nooberly.com</a><br>
-    Website: <a href="https://nooberly.com/contact.html">nooberly.com/contact</a></p>
+    <h2>16. Contact</h2>
+    <p>Privacy questions and data requests: <a href="mailto:team@nooberly.com">team@nooberly.com</a><br>
+    Everything else: <a href="mailto:team@nooberly.com">team@nooberly.com</a> or our <a href="contact.html">Contact page</a></p>
     <p>Nooberly, Inc.<br>
     New York, NY</p>
   </div>
