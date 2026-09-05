@@ -48,10 +48,13 @@
   var valid = /^[0-9a-fA-F-]{36}$/.test(id);
 
   var APP_STORE = 'https://apps.apple.com/app/id6779643818';
-  // THE REFERRER IS THE WHOLE POINT on Android: Play carries this string through
-  // the install, and the app reads it back with the Play Install Referrer API —
-  // which is how a person who did not have the app yet still arrives attributed.
-  // iOS has no equivalent; that side needs a deferred-deep-link service.
+  // Play carries this string through the install. NOTHING READS IT BACK YET:
+  // there is no Play Install Referrer library in the app (checked 08-23), so
+  // today the referrer is written and then dropped on the floor. It is sent
+  // anyway because it costs nothing and the install it rides on cannot be
+  // re-run later. Until a reader exists, someone who installs from this page
+  // arrives UNATTRIBUTED — they credit their inviter inside the app instead.
+  // iOS has no equivalent mechanism at all.
   var PLAY = 'https://play.google.com/store/apps/details?id=com.nooberly.app'
            + (valid ? '&referrer=' + encodeURIComponent('invite=' + id) : '');
 
