@@ -32,14 +32,14 @@
 
   <div class="legal">
     <h1>Privacy Policy</h1>
-    <p class="last-modified">Last modified September 5, 2026</p>
+    <p class="last-modified">Last modified September 18, 2026</p>
 
     <p>Nooberly, Inc. ("Nooberly", "we", "us") runs the Nooberly app and the website at <strong>nooberly.com</strong>. This page explains what we collect about you, why, who else handles it, what other people can see, how long we keep it, and what you can do about it. We wrote it in plain English on purpose. If anything is unclear, write to <a href="mailto:team@nooberly.com">team@nooberly.com</a>.</p>
 
     <h2>1. The short version</h2>
     <ul>
       <li><strong>Nooberly is for adults.</strong> You must be 18 or older to have an account.</li>
-      <li><strong>Your face is your identity here.</strong> You scan it once. One person gets one account. The face record stays even if you leave — that is how nobody can shed a bad reputation by signing up again.</li>
+      <li><strong>Your face is your identity here.</strong> You scan it once. One person gets one account. The face record stays for three years after you leave or stop signing in — that is how nobody can shed a bad reputation by signing up again the next day — and for ten years if you were flagged for serious conduct.</li>
       <li><strong>You choose how precisely people see where you are:</strong> exact, approximate (the default), or hidden.</li>
       <li><strong>We do not sell your data.</strong> There are no ads and no advertising code in the app.</li>
       <li><strong>Other members see the profile you build,</strong> the reviews you have received and your Star Power. Guests who have not joined see less.</li>
@@ -89,11 +89,12 @@
       <li><strong>It is a 3D liveness scan.</strong> It confirms there is a live person in front of the camera, not a photo or a video.</li>
       <li><strong>It is matched against every face record we hold.</strong> If your face already owns an active account, we ask you to sign in to that one. If it belongs to an account that was deleted, we recognise you and offer to restore your history (Section 10). Only a genuinely new face gets the one-time 33 Star Power welcome.</li>
       <li><strong>It is stored on a verification server we control</strong>, running FaceTec's software, under your account ID. Your phone never talks to that server directly — only our own servers do. Accounts created before we moved to FaceTec also have a face vector stored with AWS Rekognition.</li>
+      <li><strong>It is kept for as long as your account exists</strong>, and for three years after your last sign-in or your deletion, whichever comes first. If you have not signed in for three years we schedule your account for deletion, email you, and cancel it if you sign in within 33 days. When the three years end we delete the face record and the profile snapshot kept with it. If your account was flagged for serious conduct — threats or violence, scams or fraud, sexual content, appearing underage, impersonation, sharing someone's private information, or a ban — we keep the face record for ten years from the last incident, so that you cannot come back under a new name.</li>
       <li><strong>Your profile video must show the same person</strong> as the scan. When you set a new profile photo, we compare it with your verified face.</li>
       <li><strong>We may ask you to scan again</strong> when you sign in on a new phone, or from time to time.</li>
       <li><strong>Age estimates.</strong> Our verification tools may estimate an age range from your face. We use that only to spot accounts that look under 18 for review. It never changes your age on its own.</li>
       <li><strong>It is never sold</strong>, and never shared with anyone for their own purposes.</li>
-      <li><strong>It stays after you delete your account.</strong> This is deliberate and you should know it before you scan. Section 10 explains why and the legal basis.</li>
+      <li><strong>It stays after you delete your account</strong>, for the time described above. This is deliberate and you should know it before you scan. Section 10 explains why and the legal basis.</li>
     </ul>
 
     <h2>5. Your location</h2>
@@ -177,13 +178,13 @@
       <tr><td>Sign-in sessions and device records</td><td>While your account exists. Deleted with the account. The push token is detached from your account when you sign out.</td></tr>
       <tr><td>Temporary uploads</td><td>Video chunks uploaded while you record are deleted automatically after one day.</td></tr>
       <tr><td>Chats and messages</td><td>Kept. A chat is the record of a connection, and the other person keeps their side. If you delete your account, your chats are anchored to your face record and reattached if you come back.</td></tr>
-      <tr><td>Reviews, badges, behaviour flags</td><td>Kept permanently as community safety records, attached to your face record. Your name on reviews you wrote becomes "Deleted Noober" if you leave.</td></tr>
-      <tr><td>Star Power and Sooper Power ledgers</td><td>Kept permanently, attached to your face record. Balances cannot be reset by deleting and rejoining.</td></tr>
-      <tr><td>Face record and raw profile video clips</td><td>Kept permanently, even after deletion. See Section 10.</td></tr>
+      <tr><td>Reviews, badges, behaviour flags</td><td>Kept permanently as community safety records, attached to your face record while it exists. Your name on reviews you wrote becomes "Deleted Noober" if you leave.</td></tr>
+      <tr><td>Star Power and Sooper Power ledgers</td><td>Kept permanently, attached to your face record while it exists. Balances cannot be reset by deleting and rejoining.</td></tr>
+      <tr><td>Face record and raw profile video clips</td><td>Kept for three years after your last sign-in or your deletion, whichever comes first; ten years from the last incident if your account was flagged for serious conduct. Then deleted, with the profile snapshot. See Sections 4 and 10.</td></tr>
       <tr><td>Reports, blocks, security incidents</td><td>Kept permanently as safety records.</td></tr>
       <tr><td>Purchase receipts</td><td>Kept, attached to your face record, as a financial record.</td></tr>
       <tr><td>AI conversations</td><td>While your account exists.</td></tr>
-      <tr><td>A snapshot of your profile details</td><td>Kept with the face record after deletion — name, username, birthday, gender, relationship status, profession, address, languages, what you offered and needed — so your account can be restored if you come back, and so age cannot be renegotiated by rejoining.</td></tr>
+      <tr><td>A snapshot of your profile details</td><td>Kept with the face record after deletion — name, username, birthday, gender, relationship status, profession, address, languages, what you offered and needed — so your account can be restored if you come back, and so age cannot be renegotiated by rejoining. Deleted with the face record, after the time in Section 4.</td></tr>
     </table>
     </div>
 
@@ -191,7 +192,7 @@
     <p>Go to <em>Profile → Settings → Delete Account</em>. You can also email <a href="mailto:team@nooberly.com">team@nooberly.com</a> and we will start it for you.</p>
     <p>Deletion has a <strong>33-day waiting period</strong>. During that time your profile is taken out of feeds and search. If you sign back in before the 33 days are up, that cancels the deletion — coming back is the cancellation. The 33 days count from the moment you confirm.</p>
     <p>When the 33 days pass, we delete your profile, your posts, your calendar, your sessions and your sign-in account.</p>
-    <p><strong>What stays, and why.</strong> Nooberly only works if a reputation cannot be shed by starting over. So these are kept after deletion, attached to your face record rather than to a name:</p>
+    <p><strong>What stays, and why.</strong> Nooberly only works if a reputation cannot be shed by starting over. So these are kept after deletion, attached to your face record rather than to a name. The face record, the raw clips and the profile snapshot are deleted after three years (ten if you were flagged for serious conduct); the community and safety records in this list stay, without a name:</p>
     <ul>
       <li>The face record itself.</li>
       <li>The raw clips of your profile video, as identity evidence.</li>
@@ -202,7 +203,7 @@
       <li>Purchase receipts.</li>
       <li>The profile snapshot described in Section 9.</li>
     </ul>
-    <p>If you ever come back, we recognise your face, show you what was kept, and restore it to your new account. You never get a second 33 Star Power welcome.</p>
+    <p>If you come back inside that time, we recognise your face, show you what was kept, and restore it to your new account, and you never get a second 33 Star Power welcome. After it, the face record and the snapshot are gone; reviews other people wrote stay with the community under "Deleted Noober".</p>
     <p><strong>Legal basis.</strong> We keep these records under our legitimate interest in keeping the community safe — stopping fraud, ban evasion and the erasing of reviews other people wrote in good faith (GDPR Article 6(1)(f)). For the face record we also rely on the explicit consent you gave on the consent screen before your first scan (GDPR Article 9(2)(a)). You can object to this retention (Section 11) and we will weigh your objection against those interests and reply.</p>
 
     <h2>11. Your rights</h2>
