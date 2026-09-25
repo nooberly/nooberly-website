@@ -73,6 +73,20 @@
     secondary.href = PLAY;      secondary.textContent = 'Download for Android';
   }
 
+  // 09-24: GitHub Pages shows this page for EVERY missing URL, so a broken
+  // link looked like an invite (the Official rules link did). The app's
+  // shared links (/invite/, /profile/, /post/, /review/) keep the join page.
+  // Anything else says so plainly.
+  if (!/^\/(invite|profile|post|review)\//.test(location.pathname)) {
+    document.title = 'Page not found · Nooberly';
+    document.querySelector('h1').textContent = 'Page not found';
+    document.querySelector('main p').textContent = "This page doesn't exist.";
+    primary.style.display = 'none';
+    secondary.href = '/'; secondary.textContent = 'Go to nooberly.com';
+    document.getElementById('already').style.display = 'none';
+    return;
+  }
+
   // If the app IS installed, the OS intercepts this URL before the page ever
   // loads (App Links / Universal Links). Reaching this script means it is not
   // installed — so never try to force a scheme redirect here: on iOS it throws
