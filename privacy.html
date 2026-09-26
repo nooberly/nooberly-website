@@ -39,7 +39,7 @@
     <h2>1. The short version</h2>
     <ul>
       <li><strong>Nooberly is for adults.</strong> You must be 18 or older to have an account.</li>
-      <li><strong>Your face is your identity here.</strong> You scan it once. One person gets one account. The face record stays for three years after you leave or stop signing in — that is how nobody can shed a bad reputation by signing up again the next day — and for ten years if you were flagged for serious conduct.</li>
+      <li><strong>Your face is your identity here.</strong> You scan it at signup, and again if you sign in on a new phone. One person gets one account. The face record stays for three years after you leave or stop signing in — that is how nobody can shed a bad reputation by signing up again the next day — and for ten years if you were flagged for serious conduct.</li>
       <li><strong>You choose how precisely people see where you are:</strong> exact, approximate (the default), or hidden.</li>
       <li><strong>We do not sell your data.</strong> There are no ads and no advertising code in the app.</li>
       <li><strong>Other members see the profile you build,</strong> the reviews you have received and your Star Power. Guests who have not joined see less.</li>
@@ -60,7 +60,7 @@
       <tr><td>Posts</td><td>The video, title, description, tags and meeting spot of anything you post.</td><td>The meeting spot is public — it is the point of the post.</td></tr>
       <tr><td>Chats</td><td>Text, photos, voice notes and video clips you send; transcripts of voice notes and clips; typing and read signals.</td><td>Voice notes and clips are transcribed so they can be captioned.</td></tr>
       <tr><td>Reviews</td><td>The star rating, words and optional video you give and receive.</td><td>Reviews can only come from someone you actually dealt with — there are no drive-by ratings.</td></tr>
-      <tr><td>Your AI</td><td>The questions you answer to train your own AI, photos you add to it, and your conversations with Nooberly's AI.</td><td>Conversations are saved to your account so the AI keeps context.</td></tr>
+      <tr><td>Your AI</td><td>The questions you answer to train your own AI, photos you add to it, and your conversations with Nooberly's AI.</td><td>Conversations are saved to your account so the AI keeps context. A question the AI could not answer is also kept, without your name, for up to 12 months.</td></tr>
       <tr><td>Calendar</td><td>Your availability switch, the time blocks you set, and your timezone.</td><td>Used to show when you are free and to suggest meeting times.</td></tr>
       <tr><td>Device</td><td>A random device ID, the phone model and operating system, a push notification token, on iPhone a call token, and the IP address and rough city of each sign-in.</td><td>One active device at a time. The city helps you recognise your own sessions.</td></tr>
       <tr><td>Purchases</td><td>Whether you are a Supporter and until when, and receipts for tips.</td><td>Payments go through Apple or Google. Card details never reach us.</td></tr>
@@ -71,7 +71,7 @@
     <h2>3. Why we use it</h2>
     <ul>
       <li><strong>To run the app</strong> — your account, profile, posts, chats, calls, reviews and calendar.</li>
-      <li><strong>To verify who you are</strong> — one face, one account; to stop fraud, and to stop people who were removed from coming back under a new name.</li>
+      <li><strong>To verify who you are</strong> — one face, one account; to stop fraud, and to recognise people who were removed if they sign up again.</li>
       <li><strong>To show you people and posts nearby</strong>, and to show you to them, at the precision you chose.</li>
       <li><strong>To keep people safe</strong> — automated checks on videos, photos and post titles; handling reports; enforcing blocks.</li>
       <li><strong>To run Nooberly's AI</strong> — transcribe your video, fill in your profile, answer questions, draft a review when you ask, suggest meeting times, and let your own AI answer other members.</li>
@@ -89,10 +89,12 @@
       <li><strong>It is a 3D liveness scan.</strong> It confirms there is a live person in front of the camera, not a photo or a video.</li>
       <li><strong>It is matched against every face record we hold.</strong> If your face already owns an active account, we ask you to sign in to that one. If it belongs to an account that was deleted, we recognise you and offer to restore your history (Section 10). Only a genuinely new face gets the one-time 33 Star Power welcome.</li>
       <li><strong>It is stored on a verification server we control</strong>, running FaceTec's software, under your account ID. Your phone never talks to that server directly — only our own servers do. Accounts created before we moved to FaceTec also have a face vector stored with AWS Rekognition.</li>
-      <li><strong>It is kept for as long as your account exists</strong>, and for three years after your last sign-in or your deletion, whichever comes first. If you have not signed in for three years we schedule your account for deletion, email you, and cancel it if you sign in within 33 days. When the three years end we delete the face record and the profile snapshot kept with it. If your account was flagged for serious conduct — threats or violence, scams or fraud, sexual content, appearing underage, impersonation, sharing someone's private information, or a ban — we keep the face record for ten years from the last incident, so that you cannot come back under a new name.</li>
+      <li><strong>It is kept for as long as your account exists</strong>, and for three years after your last sign-in or your deletion, whichever comes first. If you have not signed in for three years we schedule your account for deletion, email you, and cancel it if you sign in within 33 days. When the three years end we delete the face record and the profile snapshot kept with it. If your account was flagged for serious conduct — threats or violence, scams or fraud, sexual content, appearing underage, impersonation, sharing someone's private information, or a ban — we keep the face record for ten years from the last incident, so that we recognise you if you sign up again.</li>
       <li><strong>Your profile video must show the same person</strong> as the scan. When you set a new profile photo, we compare it with your verified face.</li>
       <li><strong>We may ask you to scan again</strong> when you sign in on a new phone, or from time to time.</li>
       <li><strong>Age estimates.</strong> Our verification tools may estimate an age range from your face. We use that only to spot accounts that look under 18 for review. It never changes your age on its own.</li>
+      <li><strong>Gender reading.</strong> When you record your profile video, AWS Rekognition reads whether your face looks male or female. We keep that reading on your account. If you pick a different gender at signup, the app asks you to confirm, because gender cannot be changed later. The choice is yours.</li>
+      <li><strong>Photos taken together.</strong> When you take a photo with the in-app camera in a one-to-one chat, AWS Rekognition compares it with both people's profile photos, to note that the two of you met. We keep only that note.</li>
       <li><strong>It is never sold</strong>, and never shared with anyone for their own purposes.</li>
       <li><strong>It stays after you delete your account</strong>, for the time described above. This is deliberate and you should know it before you scan. Section 10 explains why and the legal basis.</li>
     </ul>
@@ -122,7 +124,7 @@
       <li>Photos you add to your AI are described by an OpenAI vision model so it can talk about them.</li>
       <li>When you talk to the AI by voice, your speech is transcribed and answered by OpenAI's real-time model. If you choose to give your AI your own voice — a separate opt-in, off by default — the sample you record goes to ElevenLabs to build the voice, and we note your consent on your account.</li>
     </ul>
-    <p>Your conversations with the AI are saved to your account. Nobody at Nooberly reads your chats as a matter of routine. A person may read a chat only when someone reports it, or when the law requires it.</p>
+    <p>Your conversations with the AI are saved to your account. Nobody at Nooberly reads your chats as a matter of routine. A person may read a chat only when someone reports it, or when the law requires it. When the AI cannot answer a question, we keep the question itself (for a short follow-up, with the question just before it), without your name, for up to 12 months, so we can read it and teach the AI the answer.</p>
     <p>All of our language and vision models come from OpenAI and are used under OpenAI's API terms — your data is not used to train their models.</p>
 
     <h2>7. Who else handles your data</h2>
