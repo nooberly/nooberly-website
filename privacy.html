@@ -59,7 +59,7 @@
       <tr><td>Location</td><td>Your phone's position when you open the app and each time you come back to it. On the Exact setting, also the street address your phone derives from it.</td><td>Stored at the precision you choose. See Section 5.</td></tr>
       <tr><td>Posts</td><td>The video, title, description, tags and meeting spot of anything you post.</td><td>The meeting spot is public — it is the point of the post.</td></tr>
       <tr><td>Chats</td><td>Text, photos, voice notes and video clips you send; transcripts of voice notes and clips; typing and read signals.</td><td>Voice notes and clips are transcribed so they can be captioned.</td></tr>
-      <tr><td>Reviews</td><td>The star rating, words and optional video you give and receive, and any Stars given with them (how many).</td><td>Reviews can only come from someone you actually dealt with — there are no drive-by ratings.</td></tr>
+      <tr><td>Reviews</td><td>The star rating, words and optional video you give and receive, and any Stars given with them (how many).</td><td>You can review anyone once without a chat. It only shows if they accept. If they decline, it stays stored, it never shows, and the writer is not told.</td></tr>
       <tr><td>Your AI</td><td>The questions you answer to train your own AI, photos you add to it, and your conversations with Nooberly's AI.</td><td>Conversations are saved to your account so the AI keeps context. A question the AI could not answer is also kept, without your name, for up to 12 months.</td></tr>
       <tr><td>Calendar</td><td>Your availability switch, the time blocks you set, and your timezone.</td><td>Used to show when you are free and to suggest meeting times.</td></tr>
       <tr><td>Device</td><td>A random device ID, the phone model and operating system, a push notification token, on iPhone a call token, and the IP address and rough city of each sign-in.</td><td>One active device at a time. The city helps you recognise your own sessions.</td></tr>
@@ -67,7 +67,7 @@
       <tr><td>Safety records</td><td>Reports you make or receive, people you block or mute, security incidents on your account, and behaviour flags our AI derives from reviews.</td><td>Kept to keep the community safe. See Section 10.</td></tr>
     </table>
     </div>
-    <p><strong>Ignore, the daily count and the letter picture.</strong> If you Ignore a first message, we keep a private mark of that chat and its sender until you reply to them. Only you can see it, and the sender is not told. To hold new chats, applications included, to 11 a day with people who are not yet your contacts, we keep a record of each new chat you open with someone who is not a contact: who it was with, and when. Other members cannot see whom it lists: it is only counted, and it is kept even after the chat or your account is deleted. If you record a Hello and add no picture, a still from your Hello becomes your profile picture. With neither, or if you choose the letter, our server makes one: the first letter of your name on a plain colour tile.</p>
+    <p><strong>Ignore, the daily count and the letter picture.</strong> If you Ignore a first message, we keep a private mark of that chat and its sender until you reply to them. Only you can see it, and the sender is not told. To hold new chats, applications and reviews with no chat included, to 11 a day with people who are not yet your contacts, we keep a record of each new chat you open with someone who is not a contact: who it was with, and when. Other members cannot see whom it lists: it is only counted, and it is kept even after the chat or your account is deleted. If you record a Hello and add no picture, a still from your Hello becomes your profile picture. With neither, or if you choose the letter, our server makes one: the first letter of your name on a plain colour tile.</p>
 
     <h2>3. Why we use it</h2>
     <ul>
@@ -162,9 +162,9 @@
       <li>Every review you have received, and the reviews you have written.</li>
       <li>Your Star Reputation (how many Stars you have received, and from how many people), your badges, and your Supporter mark if you have one. If you have received Stars, you can appear on the Stars board for your city.</li>
       <li>The answers you gave your AI, through your AI.</li>
-      <li>Your contacts — the people you have exchanged reviews with — and which of them they also know.</li>
+      <li>Your contacts — the people you share a shown review with — and which of them they also know.</li>
     </ul>
-    <p><strong>Your face, your choice.</strong> At signup you can choose to show your face only to members of your own gender. Members outside that group still see you as a person — your name and profile — but not your face or photos, unless you started a chat with them or the two of you have completed a connection.</p>
+    <p><strong>Your face, your choice.</strong> At signup you can choose to show your face only to members of your own gender. Members outside that group still see you as a person — your name and profile — but not your face or photos, unless you started a chat with them or the two of you have completed a connection. A review with no chat opens neither. A video you add to a review shows you to anyone who can read that review.</p>
     <p><strong>Your QR code</strong> is a link to your profile. Anyone who scans it opens your profile in the app. If someone joins Nooberly by scanning your code, we note that you invited them.</p>
     <p><strong>Reports.</strong> If someone reports a chat, a person on our side may read that chat thread to decide what to do.</p>
 
@@ -180,7 +180,7 @@
       <tr><td>Sign-in sessions and device records</td><td>While your account exists. Deleted with the account. The push token is detached from your account when you sign out.</td></tr>
       <tr><td>Temporary uploads</td><td>Video chunks uploaded while you record are deleted automatically after one day.</td></tr>
       <tr><td>Chats and messages</td><td>Kept. A chat is the record of a connection, and the other person keeps their side. If you delete your account, your chats are anchored to your face record and reattached if you come back.</td></tr>
-      <tr><td>Reviews, badges, behaviour flags</td><td>Kept permanently as community safety records, attached to your face record while it exists. Your name on reviews you wrote becomes "Deleted Noober" if you leave.</td></tr>
+      <tr><td>Reviews, badges, behaviour flags</td><td>Kept permanently as community safety records, attached to your face record while it exists. Your name on reviews you wrote becomes "Deleted Noober" if you leave. A review with no chat that was declined or never answered is kept the same way, and never shows.</td></tr>
       <tr><td>Star Power ledger</td><td>Kept permanently, attached to your face record while it exists. Balances cannot be reset by deleting and rejoining.</td></tr>
       <tr><td>Face record and raw Hello video clips (if any)</td><td>Kept for three years after your last sign-in or your deletion, whichever comes first; ten years from the last incident if your account was flagged for serious conduct. Then deleted, with the profile snapshot. See Sections 4 and 10. Removing your Hello takes it off your profile; the file is kept with your identity record.</td></tr>
       <tr><td>Reports, blocks, security incidents</td><td>Kept permanently as safety records.</td></tr>
