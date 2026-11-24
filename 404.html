@@ -43,17 +43,23 @@
 
 <script>
 (function () {
-  // The invite id is the last path segment: /invite/<uuid>
-  var id = (location.pathname.split('/').filter(Boolean).pop() || '').trim();
+  // The id is the last path segment: /invite/<uuid> or /profile/<uuid>
+  var path = location.pathname;
+  var id = (path.split('/').filter(Boolean).pop() || '').trim();
   var valid = /^[0-9a-fA-F-]{36}$/.test(id);
+  // A PERSON'S OWN CODE (Atif 11-24, "Yes, both count"): the Invite a Friend code
+  // (/invite/) and My QR Code (/profile/) both carry their owner. A shared post or
+  // review does not: its last part is a post or a review, never a person, and until
+  // 11-24 that wrong id went to Play as the inviter.
+  var isCode = valid && /^\/(invite|profile)\//.test(path);
 
   var APP_STORE = 'https://apps.apple.com/app/id6779643818';
   // THE REFERRER IS THE WHOLE POINT on Android: Play carries this string through
   // the install, and the app reads it back with the Play Install Referrer API —
   // which is how a person who did not have the app yet still arrives attributed.
-  // iOS has no equivalent; that side needs a deferred-deep-link service.
+  // iOS has no equivalent: there the person opens the link again after joining.
   var PLAY = 'https://play.google.com/store/apps/details?id=com.nooberly.app'
-           + (valid ? '&referrer=' + encodeURIComponent('invite=' + id) : '');
+           + (isCode ? '&referrer=' + encodeURIComponent('invite=' + id) : '');
 
   var ua = navigator.userAgent || '';
   var isIOS = /iPad|iPhone|iPod/.test(ua) || (/Mac/.test(ua) && navigator.maxTouchPoints > 1);
@@ -94,6 +100,29 @@
   if (!valid) {
     document.getElementById('already').textContent =
       'This invite link looks incomplete — ask your friend to send it again.';
+  }
+
+  // The App Store carries nothing through the install, so on an iPhone the
+  // inviter is named by opening the same link once more (Atif 11-13, "Yes, count them").
+  if (isCode && isIOS) {
+    document.getElementById('already').textContent =
+      'After you join, open this link again or scan the code again.';
+  }
+
+  // STRAIGHT TO THE STORE (Atif 11-22: "it should basically take it straight to the
+  // Play Store. If they are Android ... If it's Apple, it should take them to the
+  // Apple store"). A phone that opens a person's code and lands here does not have
+  // the app, so it is sent on at once: Android to Play with the invite, an iPhone to
+  // the App Store. Once per tab: a person who comes back finds this page and its
+  // buttons (the other store, the next step) instead of being sent away again.
+  // The store links are plain https, never a scheme (see above).
+  if (isCode && (isIOS || isAndroid)) {
+    var sent = false;
+    try {
+      sent = sessionStorage.getItem('nb_sent_to_store') === '1';
+      sessionStorage.setItem('nb_sent_to_store', '1');
+    } catch (e) { /* no storage (a private tab): send anyway */ }
+    if (!sent) location.replace(isIOS ? APP_STORE : PLAY);
   }
 })();
 </script>
